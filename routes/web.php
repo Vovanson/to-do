@@ -1,16 +1,35 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| This file is where you may define all of the routes that are handled
-| by your application. Just tell Laravel the URIs it should respond
-| to using a Closure or controller method. Build something great!
-|
-*/
-
 Route::get('/', function () {
-    return view('welcome');
+    return view('content');
 });
+
+/**
+ * Get Categories & Tasks
+ */
+Route::get('/category', 'CategoryController@getAll');
+
+
+/**
+ * Add New Category
+ */
+Route::post('/category', 'CategoryController@addCategory');
+
+
+/**
+ * Add New Task
+ */
+Route::post('/task', 'TaskController@addTask');
+
+
+/**
+ * Delete Task
+ */
+Route::delete('/task/{task}', 'TaskController@deleteTask');
+
+
+/**
+ * Update Task
+ */
+Route::patch('/task/{task}', 'TaskController@updateTask');
+
